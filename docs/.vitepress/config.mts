@@ -463,7 +463,7 @@ export default withMermaid(defineConfigWithTheme<ThemeConfigWithBroadcast>({
       {
         text: '基础篇',
         items: [
-          { text: '序言', link: '/Basic/' },
+          { text: '欢迎来到基础版', link: '/Basic/' },
           { text: '0. 序章', link: '/Basic/00-preface/' },
           { text: '1. 觉醒：为什么现在是编程最好的时代', link: '/Basic/01-awakening/' },
           { text: '2. 心法：像产品经理一样思考', link: '/Basic/02-mindset/' },
@@ -479,7 +479,7 @@ export default withMermaid(defineConfigWithTheme<ThemeConfigWithBroadcast>({
       {
         text: '进阶篇',
         items: [
-          { text: '序言：从想法到产品', link: '/Advanced/' },
+          { text: '从想法到产品的100小时', link: '/Advanced/' },
           { text: '01-环境搭建与代码运行基础', link: '/Advanced/01-environment-setup/' },
           { text: '02-AI使用说明书', link: '/Advanced/02-ai-tuning-guide/' },
           { text: '03-PRD与文档驱动', link: '/Advanced/03-prd-doc-driven/' },
