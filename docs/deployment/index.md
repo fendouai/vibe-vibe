@@ -200,7 +200,6 @@ pnpm build
 
 1. 查看本文档的常见问题部分
 2. 在 GitHub 提 Issue：[datawhalechina/vibe-vibe](https://github.com/datawhalechina/vibe-vibe/issues)
-3. 联系保姆团队：[Datawhale DOPMC](https://github.com/datawhalechina/DOPMC/blob/main/OP.md)
 
 ---
 
