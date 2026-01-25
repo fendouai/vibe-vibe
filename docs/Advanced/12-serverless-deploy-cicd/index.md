@@ -9,12 +9,15 @@ title: "第十二章：无服务器部署与 CI/CD 自动化"
 
 ### 零成本部署
 
-老师傅给你推荐了一套经典的零成本起步方案：**Vercel (前端+后端运行环境)** + **Supabase (云数据库)**。
+老师傅给你推荐了一套经典的零成本起步方案：**Vercel (前端+后端运行环境)** + **Neon (云数据库)**。
 
-为什么推荐 Vercel 作为前端部署平台？因为它连接 GitHub 后自动部署，全球 CDN 加速，免费额度够用，是 AI 时代 MVP 的最佳选择。后端方面，你可以选择标准 PostgreSQL 的托管服务（如 Neon、Railway），也可以选择 Supabase 这种 BaaS（覆盖数据库、Auth、Storage、Realtime 等功能）。架构是用户 → Vercel（前端）→ PostgreSQL/Supabase（后端），服务都能免费起步，按需付费。扩展路径清晰：MVP 用免费额度，增长后升级 Pro 版本，或者考虑自建服务器。这样的组合让 AI 开发的 MVP 能以最快速度上线验证。
+为什么推荐 Vercel 作为前端部署平台？因为它连接 GitHub 后自动部署，全球 CDN 加速，免费额度够用，是 AI 时代 MVP 的最佳选择。
 
 - **Vercel**：这是 Next.js 的官方部署平台，体验极佳。它提供 **Serverless (无服务器)** 环境。注意，Serverless 不是说没有服务器，而是**你不需要管理服务器**。你只管写代码，服务器的扩容、维护全交给 Vercel，有请求时它自动唤醒，没请求时它自动休眠，对个人开发者有免费额度。**【详见11.1节】** 会深入讲解 Serverless 的原理、优缺点、适用场景。
-- **Supabase**：Vercel 不提供数据库，所以我们需要 Supabase。它本质上就是一个**云端的 PostgreSQL**。 老师傅悄悄提醒你，最好不要被它深度捆绑。意思是：尽量使用 **Drizzle ORM** 通过标准的连接字符串去连它，而不是大量使用 Supabase 独有的 JS SDK。这样哪天 Supabase 收费贵了，你可以把 `DATABASE_URL` 一改，无缝迁移到阿里云或其他云数据库，这叫**保持架构的独立性**。
+
+Vercel 不提供数据库，所以你需要单独选择数据库托管。老师傅推荐你用 **Neon**——它是一个专注于 PostgreSQL 本身的云服务，提供无服务器架构，可以按需自动扩缩容。最重要的是，它就是标准的 PostgreSQL，你用 **Drizzle ORM** 通过标准连接字符串去连接，完全不涉及任何厂商捆绑。这样哪天你想换数据库服务商，只需要把 `DATABASE_URL` 一改就行，这叫**保持架构的独立性**。
+
+如果你需要更多后端功能（比如 Auth 认证、Storage 存储、Realtime 实时订阅），也可以考虑 **Supabase**。它本质上就是一个**云端的 PostgreSQL** 加上一套后端服务。但老师傅提醒你，尽量用 Drizzle ORM 直连数据库，而不是大量使用 Supabase 独有的 JS SDK，这样才能保持迁移的灵活性。
 
 
 
