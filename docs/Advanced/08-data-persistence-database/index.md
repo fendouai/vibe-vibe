@@ -110,7 +110,9 @@ export const posts = pgTable('posts', {
 
 但老师傅提醒你，本教程推荐使用标准的 PostgreSQL，而不是被任何 BaaS 捆绑。标准 PostgreSQL 让你更深入理解数据库的核心概念，迁移成本更低，未来可以根据需求选择任意托管平台或自建。Supabase、Neon、Railway 等都只是 PostgreSQL 的不同托管方式，你掌握的是数据库本身，而不是某个特定的服务平台。这种"不被捆绑"的思路，在 AI 时代尤为重要。
 
-为什么是 PostgreSQL？除了它是世界上最强大的开源关系型数据库之一，它还有两个让 AI 开发者无法拒绝的特性：
+为什么是 PostgreSQL？举一个最有说服力的例子：**OpenAI 的 ChatGPT 后端用的就是 PostgreSQL**。他们用单一 PostgreSQL 主库支撑了 8 亿用户，每秒处理百万级查询。如果 PostgreSQL 能扛住 ChatGPT 的规模，那对你来说绝对够用了。
+
+除了有顶尖 AI 公司背书，PostgreSQL 还有两个让 AI 开发者无法拒绝的特性：
 
 1. **JSONB 支持**：它虽然是关系型数据库，但能像 NoSQL 一样直接存 JSON 数据。这意味着你可以把 AI 生成的那些结构不确定的复杂数据直接丢进去，既有规则（SQL）又有灵活性（NoSQL）。
 2. **pgvector（向量检索）**：这是 AI 时代的杀手锏。它可以存储和查询"向量数据"，这是实现 **AI 长期记忆**（RAG）的核心技术。选了 PostgreSQL，就等于为你的 AI 应用铺平了未来的路。
