@@ -96,6 +96,8 @@ const isAnimating = ref(false)
 const animationSpeed = ref(1)
 const showDetailPanel = ref(false)
 const hoveredTech = ref<string | null>(null)
+const isFullscreen = ref(false)
+const componentRef = ref<HTMLElement | null>(null)
 
 // 数据包动画
 const packetPositions = ref<number[][]>(connections.map(() => []))
@@ -168,17 +170,33 @@ const currentLayer = computed(() =>
   selectedLayer.value !== null ? layers[selectedLayer.value] : null
 )
 
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    componentRef.value?.requestFullscreen()
+    isFullscreen.value = true
+  } else {
+    document.exitFullscreen()
+    isFullscreen.value = false
+  }
+}
+
+function handleFullscreenChange() {
+  isFullscreen.value = !!document.fullscreenElement
+}
+
 onMounted(() => {
   startAnimation()
+  document.addEventListener('fullscreenchange', handleFullscreenChange)
 })
 
 onUnmounted(() => {
   stopAnimation()
+  document.removeEventListener('fullscreenchange', handleFullscreenChange)
 })
 </script>
 
 <template>
-  <div class="tech-stack-architecture">
+  <div ref="componentRef" class="tech-stack-architecture" :class="{ fullscreen: isFullscreen }">
     <!-- 顶部控制栏 -->
     <div class="control-bar">
       <div class="control-group">
@@ -204,6 +222,11 @@ onUnmounted(() => {
         >
         <span class="speed-value">{{ animationSpeed }}x</span>
       </div>
+
+      <button class="control-btn fullscreen-btn" @click="toggleFullscreen">
+        <span class="btn-icon">{{ isFullscreen ? '⛶' : '⛶' }}</span>
+        <span>{{ isFullscreen ? '退出全屏' : '全屏' }}</span>
+      </button>
     </div>
 
     <!-- 主架构图 -->
@@ -863,6 +886,31 @@ onUnmounted(() => {
 .legend-arrow {
   color: #c7c7cc;
   font-size: 14px;
+}
+
+/* 全屏模式 */
+.tech-stack-architecture.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  border-radius: 0;
+  overflow: auto;
+}
+
+.tech-stack-architecture.fullscreen .architecture-wrapper {
+  min-height: calc(100vh - 200px);
+}
+
+.tech-stack-architecture.fullscreen .detail-panel,
+.tech-stack-architecture.fullscreen .empty-panel {
+  width: 450px;
+}
+
+.fullscreen-btn {
+  margin-left: auto;
 }
 
 /* 响应式 */
