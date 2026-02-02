@@ -19,6 +19,7 @@ title: "第五章：界面(UI)与交互(UX)"
 
 - **CSS (层叠样式表)**：如果说 HTML 是网页的**骨架**（素颜），那 CSS 就是**化妆品**。它决定了按钮是圆角还是直角，背景是渐变还是纯色。
 - **组件 (Component)**：现代网页不是画出来的，而是**搭**出来的。导航栏、按钮、输入框，这些都是预先做好的**乐高积木**。你不需要每次都手写一个"带圆角、有阴影、鼠标悬停变色的红色按钮"，而是直接拿来一个叫做 `<Button />` 的积木就能用。
+- **布局 (Layout)**：元素怎么摆放在页面上，由布局方式决定。现代网页主要用 Flexbox 和 Grid。Flexbox 适合一维布局（行或列），比如导航栏、卡片列表；Grid 适合二维布局（行+列），比如整个页面框架。你只需要告诉 AI"把这三个按钮横向排列"或"把页面分成左右两列"，具体属性让它处理。
 
 
 
@@ -119,10 +120,11 @@ UI 开发相关的 Skills 能让 AI 更懂设计、更懂前端规范。比如�
 
 | Skill 名称 | 用途 | 安装命令 |
 |-----------|------|---------|
-| `frontend-design` | 高质量前端界面设计 | `npx skills add anthropics/skills/frontend-design` |
-| `web-design-guidelines` | Web 界面设计规范审查 | `npx skills add vercel-labs/agent-skills/web-design-guidelines` |
-| `webapp-testing` | 使用 Playwright 测试网页 | `npx skills add anthropics/skills/webapp-testing` |
-| `web-artifacts-builder` | 创建复杂的 React/Tailwind UI | `npx skills add anthropics/skills/web-artifacts-builder` |
+| `frontend-design` | 高质量前端界面设计 | `npx skills add https://github.com/anthropics/skills --skill frontend-design` |
+| `web-design-guidelines` | Web 界面设计规范审查 | `npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines` |
+| `ui-ux-pro-max` | UI/UX 专业设计指南 | `npx skills add https://github.com/nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max` |
+| `building-native-ui` | 原生移动端 UI 开发 | `npx skills add https://github.com/expo/skills --skill building-native-ui` |
+| `audit-website` | 网站 UI/UX 审计 | `npx skills add https://github.com/squirrelscan/skills --skill audit-website` |
 
 **如何使用 Skills**：
 
@@ -140,8 +142,8 @@ UI 开发相关的 Skills 能让 AI 更懂设计、更懂前端规范。比如�
 - 5.0 Skills 资源 (./00-skills-resources.md) 🟢
     UI 开发相关的 Skills 资源介绍，以及如何让 AI 更懂设计规范
 
-- 5.1 前端设计 AI 工具箱 (./01-ai-design-tools.md) 🟡
-    除了 Claude Code，还有哪些专门做 UI 的 AI 工具？什么时候用哪个？
+- 5.1 AI 设计工具 (./01-ai-design-tools.md) 🟡
+    v0.dev、Figma、Framer AI...这些专门做 UI 的 AI 工具，什么时候用？
 
 - 5.2 动画与交互库 (./02-animation-libraries.md) 🟡
     Framer Motion、GSAP、Three.js...让页面"动"起来的选项
