@@ -22,6 +22,7 @@ import PackageJsonExplorer from './components/01-1-PackageJsonExplorer.vue'
 import AIToolSelector from './components/01-1-AIToolSelector.vue'
 import ProjectScaffoldFlow from './components/01-1-ProjectScaffoldFlow.vue'
 import LocalhostVisualizer from './components/01-1-LocalhostVisualizer.vue'
+import ReadingProgress from './components/01-2-ReadingProgress.vue'
 // Chapter 03: PRD Doc-Driven
 import PRDToCodeFlow from './components/03-4-PRDToCodeFlow.vue'
 import SoulThreeQuestions from './components/03-1-SoulThreeQuestions.vue'
@@ -263,6 +264,9 @@ const SiteLayout = defineComponent({
     )
 
     const isHomeLayout = computed(() => frontmatter.value.layout === 'home')
+    const showReadingProgress = computed(
+      () => !isHomeLayout.value && frontmatter.value.readingProgress !== false
+    )
 
     const renderPreviewNotice = () =>
       h('div', { class: 'preview-notice' }, [
@@ -288,6 +292,8 @@ const SiteLayout = defineComponent({
             : null,
         'page-bottom': () =>
           h('div', { class: 'preview-notice-wrap' }, [renderPreviewNotice()]),
+        'layout-bottom': () =>
+          showReadingProgress.value ? h(ReadingProgress) : null,
         'doc-after': () => {
           if (isHomeLayout.value) return null
 
