@@ -23,6 +23,7 @@ This category explores the technical foundations of AI-assisted development tool
 | [Testing If Bash Is All You Need](./testing-bash-vs-sql.md) | Vercel & Braintrust | How do different tool abstractions compare in practice? |
 | [Self-Improving Coding Agents](./self-improving-coding-agents.md) | Addy Osmani | Can coding agents learn and improve autonomously? |
 | [Multi-Agent Systems for AI-Native Engineering](./multi-agent-systems-ai-native-engineering.md) | Resolve AI | How do multi-agent systems handle production-grade challenges? |
+| [Understanding AI: The 5-Layer Cake](./nvidia-ai-5-layer-cake.md) | NVIDIA | How does the full AI technology stack work from chips to applications? |
 
 ## Reading Recommendations
 
